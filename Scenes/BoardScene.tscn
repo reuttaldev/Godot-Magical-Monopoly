@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/ButtonCrazyText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/MediumCrazyText.tres" type="DynamicFont" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://Fonts/LSansBig.tres" type="DynamicFont" id=4]
 
 [sub_resource type="Theme" id=1]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 30, 30, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 60, 60, 2.005 )
 
 [node name="Scene" type="Node"]
 
@@ -17,56 +23,6 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.72549, 0.541176, 0.87451, 1 )
-
-[node name="Pop Up Panel" type="Panel" parent="UI/BackGround"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 192.0
-margin_top = 175.0
-margin_right = -192.0
-margin_bottom = -175.0
-
-[node name="Purple BackGround" type="ColorRect" parent="UI/BackGround/Pop Up Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.364706, 0.0823529, 0.462745, 1 )
-
-[node name="White Background" type="ColorRect" parent="UI/BackGround/Pop Up Panel/Purple BackGround"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_top = 21.0
-margin_right = -21.0
-margin_bottom = -21.0
-
-[node name="Description Text" type="Label" parent="UI/BackGround/Pop Up Panel/Purple BackGround/White Background"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -274.0
-margin_top = -79.0
-margin_right = 274.0
-margin_bottom = 79.0
-custom_colors/font_color = Color( 0.364706, 0.0823529, 0.462745, 1 )
-custom_fonts/font = ExtResource( 2 )
-text = "Welcome To
-Magical Monopoly!"
-align = 1
-valign = 1
-
-[node name="Start Button" type="Button" parent="UI/BackGround/Pop Up Panel/Purple BackGround/White Background"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -54.0
-margin_top = 67.0
-margin_right = 54.0
-margin_bottom = 95.0
-theme = SubResource( 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "continue"
 
 [node name="Now playing text" type="ColorRect" parent="UI"]
 anchor_left = 0.5
@@ -108,6 +64,9 @@ margin_bottom = 45.5
 [node name="name" parent="UI/Top Display/Points Diplay/1" index="0"]
 text = "Player 1"
 
+[node name="numbr of points" parent="UI/Top Display/Points Diplay/1" index="1"]
+percent_visible = 1.0
+
 [node name="2" parent="UI/Top Display/Points Diplay" instance=ExtResource( 3 )]
 anchor_left = 1.0
 anchor_top = 0.5
@@ -120,6 +79,9 @@ margin_bottom = 45.5
 
 [node name="name" parent="UI/Top Display/Points Diplay/2" index="0"]
 text = "Player 2"
+
+[node name="numbr of points" parent="UI/Top Display/Points Diplay/2" index="1"]
+percent_visible = 1.0
 
 [node name="Round Text" type="Label" parent="UI/Top Display"]
 anchor_left = 0.5
@@ -134,6 +96,72 @@ custom_fonts/font = ExtResource( 4 )
 text = "Round 1"
 align = 1
 valign = 1
+
+[node name="Pop Up Panel" type="Panel" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 192.0
+margin_top = 175.0
+margin_right = -192.0
+margin_bottom = -175.0
+
+[node name="Purple BackGround" type="ColorRect" parent="UI/Pop Up Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.364706, 0.0823529, 0.462745, 1 )
+
+[node name="White Background" type="ColorRect" parent="UI/Pop Up Panel/Purple BackGround"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = 21.0
+margin_right = -21.0
+margin_bottom = -21.0
+
+[node name="Description Text" type="Label" parent="UI/Pop Up Panel/Purple BackGround/White Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -274.0
+margin_top = -79.0
+margin_right = 274.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 0.364706, 0.0823529, 0.462745, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Welcome To
+Magical Monopoly!"
+align = 1
+valign = 1
+
+[node name="Start Button" type="Button" parent="UI/Pop Up Panel/Purple BackGround/White Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.0
+margin_top = 67.0
+margin_right = 54.0
+margin_bottom = 95.0
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "continue"
+
+[node name="Table" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Table"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Table"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.7852, 0 )
 
 [editable path="UI/Top Display/Points Diplay/1"]
 [editable path="UI/Top Display/Points Diplay/2"]
