@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/ButtonCrazyText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/MediumCrazyText.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Prefabs/Magic Point Display.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/LSansBig.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Prefabs/Table Leg.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Theme" id=1]
 
@@ -11,15 +12,22 @@
 extents = Vector3( 30, 30, 1 )
 
 [sub_resource type="CubeMesh" id=3]
-size = Vector3( 60, 60, 2.005 )
+size = Vector3( 100, 100, 5 )
 
 [node name="Scene" type="Node"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.603514, 0.797352, 0, -0.797352, 0.603514, 0, 58.7738, 66.6217 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="BackGround" type="ColorRect" parent="UI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.72549, 0.541176, 0.87451, 1 )
@@ -159,6 +167,21 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 3 )
 material/0 = null
+
+[node name="Legs" type="Spatial" parent="Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51746, 0, 0 )
+
+[node name="left front" parent="Table/Legs" instance=ExtResource( 5 )]
+transform = Transform( 0.99986, 0, -0.0167369, 0, 1, 0, 0.0167369, 0, 0.99986, -50, -30, 45 )
+
+[node name="Table Leg4" parent="Table/Legs" instance=ExtResource( 5 )]
+transform = Transform( 0.99986, 0, -0.0167369, 0, 1, 0, 0.0167369, 0, 0.99986, 28.9592, -30, -21.0959 )
+
+[node name="Table Leg2" parent="Table/Legs" instance=ExtResource( 5 )]
+transform = Transform( 0.99986, 0, -0.0167369, 0, 1, 0, 0.0167369, 0, 0.99986, 37.2367, -30, 39.233 )
+
+[node name="Table Leg3" parent="Table/Legs" instance=ExtResource( 5 )]
+transform = Transform( 0.99986, 0, -0.0167369, 0, 1, 0, 0.0167369, 0, 0.99986, -24.0358, -30, 24.5534 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.7852, 0 )

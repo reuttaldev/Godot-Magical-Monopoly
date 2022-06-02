@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 5.0
+bottom_radius = 5.0
+height = 60.0
+
+[node name="Table Leg" type="MeshInstance"]
+transform = Transform( 0.99986, 0, -0.0167369, 0, 1, 0, 0.0167369, 0, 0.99986, -18.2069, 15.2512, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("")
+material/0 = null
