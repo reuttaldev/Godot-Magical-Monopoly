@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Fonts/EHSMB.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/UI/MenuController.cs" type="Script" id=2]
 
 [sub_resource type="Theme" id=2]
 
-[sub_resource type="DynamicFont" id=1]
-size = 44
-font_data = ExtResource( 1 )
+[sub_resource type="Theme" id=3]
 
 [node name="MainMenu" type="Node"]
+script = ExtResource( 2 )
 
 [node name="Canvas" type="Control" parent="."]
 anchor_right = 1.0
@@ -36,7 +36,7 @@ margin_top = 17.0
 margin_right = 231.0
 margin_bottom = 63.0
 custom_colors/font_color = Color( 0.690196, 0.321569, 0.180392, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Made By: Reut Tal"
 
 [node name="Welcome Text" type="Label" parent="Canvas/Purple BackGround/White Background"]
@@ -49,17 +49,21 @@ margin_top = -47.5
 margin_right = 229.5
 margin_bottom = 47.5
 custom_colors/font_color = Color( 0.364706, 0.0823529, 0.462745, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Welcome To
 Magical Monopoly!"
 align = 1
 
 [node name="Start Button" type="Button" parent="Canvas/Purple BackGround/White Background"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -6.0
-margin_top = -20.0
-margin_right = 37.0
+anchor_left = 0.426
+anchor_top = 0.794
+anchor_right = 0.573
+anchor_bottom = 0.898
+margin_left = 0.375977
+margin_right = -0.452026
+margin_bottom = -22.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 1 )
 text = "PLAY"
+
+[connection signal="pressed" from="Canvas/Purple BackGround/White Background/Start Button" to="." method="OnClick"]
