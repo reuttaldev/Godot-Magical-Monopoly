@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/MediumCrazyText.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/LSansBig.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/LSansSmall.tres" type="DynamicFont" id=3]
+
+[node name="Magic Point Display" type="Control"]
+margin_left = 39.0
+margin_top = 30.0
+margin_right = 170.0
+margin_bottom = 121.0
+
+[node name="name" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Player 
+"
+align = 1
+
+[node name="numbr of points" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+text = "300"
+align = 1
+valign = 1
+percent_visible = -0.333333
+
+[node name="mg text" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+text = "Magic Points"
+align = 1
+valign = 2
