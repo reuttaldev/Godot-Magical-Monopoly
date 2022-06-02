@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/MediumCrazyText.tres" type="DynamicFont" id=1]
+
+[node name="Now playing text" type="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -77.0
+margin_top = -87.0
+margin_right = 77.0
+margin_bottom = -55.0
+color = Color( 0.690196, 0.321569, 0.180392, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Player 1"
+align = 1
+valign = 1
