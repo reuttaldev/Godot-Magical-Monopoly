@@ -19,11 +19,11 @@ background_color = Color( 0.72549, 0.541176, 0.87451, 1 )
 [sub_resource type="Theme" id=1]
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 25, 25, 1 )
+extents = Vector3( 27, 20, 2 )
 
 [sub_resource type="CubeMesh" id=3]
 material = ExtResource( 6 )
-size = Vector3( 50, 50, 4 )
+size = Vector3( 55, 55, 4 )
 
 [sub_resource type="Skin" id=4]
 
@@ -32,9 +32,6 @@ size = Vector3( 50, 50, 4 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.708389, 0.705822, 0, -0.705822, 0.708389, 0, 27.8033, 47.8499 )
 environment = SubResource( 5 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 28, 51 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
@@ -149,7 +146,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Table"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 11.3948 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 9.34775 )
 mesh = SubResource( 3 )
 skin = SubResource( 4 )
 material/0 = null
@@ -158,10 +155,10 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51746, -18.3514, 0 )
 
 [node name="left" parent="Table/Legs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0769, 0, 32 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.626, 0, 32 )
 
 [node name="right" parent="Table/Legs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7228, 0, 32 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4317, 0, 32 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.9886, 6.77578 )
@@ -169,90 +166,91 @@ visible = false
 
 [node name="Board" type="Spatial" parent="."]
 
+[node name="DirectionalLight" type="DirectionalLight" parent="Board"]
+transform = Transform( 1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 28, 51 )
+
 [node name="Tiles" type="Spatial" parent="Board"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00614, 0 )
 
 [node name="Properties" type="Spatial" parent="Board/Tiles"]
 
 [node name="PropertyCard1" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6275, 0, 33.0918 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0004, 0, 31.921 )
 
 [node name="PropertyCard2" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41196, 0, 32.3453 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0144, 0, 31.921 )
 
 [node name="PropertyCard3" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2726, 0, 32.5941 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.95704, 0, 31.921 )
 
 [node name="PropertyCard4" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9905, 0, 32.8429 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9445, 0, 31.9215 )
 
 [node name="PropertyCard5" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5099, 0, 23.6502 )
 
 [node name="PropertyCard6" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 16.7171 )
 
 [node name="PropertyCard7" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 2.76621 )
 
 [node name="PropertyCard8" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.4704, 0, -4.29426 )
 
 [node name="PropertyCard9" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9779, 0, -13.148 )
 
 [node name="PropertyCard10" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97611, 0, -13.148 )
 
 [node name="PropertyCard11" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03321, 0, -13.148 )
 
 [node name="PropertyCard12" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0391, 0, -13.148 )
 
 [node name="PropertyCard13" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, -4.64034 )
 
 [node name="PropertyCard14" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 2.38275 )
 
 [node name="PropertyCard15" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 16.3339 )
 
 [node name="PropertyCard16" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 23.3312 )
 
 [node name="Reward" type="Spatial" parent="Board/Tiles"]
 
 [node name="Reward Card1" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.007, 0, 32.366 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9548, 0.429424, 32.4281 )
 
 [node name="Reward Card2" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9952, 0, 32.4153 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.4899, 0, 31.8894 )
 
 [node name="Reward Card3" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2837, 0, -9.88874 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4706, 0, -13.0812 )
 
 [node name="Reward Card4" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2983, 0, -9.88445 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.4901, 0, -13.1461 )
 
 [node name="Fine" type="Spatial" parent="Board/Tiles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.711 )
 
 [node name="FineCard1" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2908, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.921 )
 
 [node name="FineCard2" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.439, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 9.69474 )
 
 [node name="FineCard3" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.9176 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.4695, 0, 9.37335 )
 
 [node name="Jail" type="Spatial" parent="Board/Tiles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.88977 )
 
 [node name="Jail Card" parent="Board/Tiles/Jail" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0407963, 0, -13.148 )
 
 [editable path="UI/Top Display/Points Diplay/1"]
 [editable path="UI/Top Display/Points Diplay/2"]
