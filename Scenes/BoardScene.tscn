@@ -23,14 +23,14 @@ extents = Vector3( 25, 25, 1 )
 
 [sub_resource type="CubeMesh" id=3]
 material = ExtResource( 6 )
-size = Vector3( 50, 50, 3 )
+size = Vector3( 50, 50, 4 )
 
 [sub_resource type="Skin" id=4]
 
 [node name="Scene" type="Node"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.744952, 0.667118, 0, -0.667118, 0.744952, 0, 27.8033, 51.1217 )
+transform = Transform( 1, 0, 0, 0, 0.708389, 0.705822, 0, -0.705822, 0.708389, 0, 27.8033, 47.8499 )
 environment = SubResource( 5 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
