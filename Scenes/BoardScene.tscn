@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Art/Fonts/ButtonCrazyText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Art/Fonts/MediumCrazyText.tres" type="DynamicFont" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Prefabs/Cards/PropertyCard.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/Cards/FineCard.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/GamePlay/Player.cs" type="Script" id=12]
+[ext_resource path="res://Scripts/GamePlay/GameController.cs" type="Script" id=13]
 [ext_resource path="res://Scripts/UI/UIGameController.cs" type="Script" id=14]
 
 [sub_resource type="CSharpScript" id=6]
@@ -112,7 +113,6 @@ percent_visible = 1.0
 text = "Round 1"
 
 [node name="Pop Up Panel" type="Panel" parent="UI"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 192.0
@@ -134,6 +134,22 @@ margin_right = -21.0
 margin_bottom = -21.0
 
 [node name="Description Text" type="Label" parent="UI/Pop Up Panel/Purple BackGround/White Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -274.0
+margin_top = -79.0
+margin_right = 274.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 0.364706, 0.0823529, 0.462745, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Welcome To
+Magical Monopoly!"
+align = 1
+valign = 1
+
+[node name="Big Text" type="Label" parent="UI/Pop Up Panel/Purple BackGround/White Background"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -279,6 +295,9 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.4695
 
 [node name="Jail Card" parent="Board/Tiles/Jail" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0407963, 0, -13.148 )
+
+[node name="Game Controller" type="Node" parent="."]
+script = ExtResource( 13 )
 
 [editable path="UI/Top Display/Points Diplay/1"]
 [editable path="UI/Top Display/Points Diplay/2"]

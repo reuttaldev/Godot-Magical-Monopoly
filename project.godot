@@ -14,6 +14,11 @@ config/name="Semester 3 Project"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameController="*res://Scripts/GamePlay/GameController.cs"
+UiGameController="*res://Scripts/UI/UIGameController.cs"
+
 [display]
 
 window/size/resizable=false

@@ -5,18 +5,26 @@ using System.Collections.Generic;
 
 public class UIGameController : Control
 {
-    [Export]
-    private Label[] namesTexts,amountText;
-    [Export]
+    private Label [] amountText=new Label[2];
     private Label nowPlayingTxt, bigPopUpTxt, smallPopUpText,roundCountText, jailTimerTxt;
-    [Export]
     private Control popUpPanel;
-    [Export]
     private Button continueButton;
     private string[] playersNames = {"Player 1","Player 2"};
 
     public override void _Ready()
     {
+        // loading nodes from scene, unfortunately you cannot set them in the editor using serializable field (or export here) like in unity
+        nowPlayingTxt = (Label)GetNode("UI/Top Display/Now playing text");
+        bigPopUpTxt = (Label)GetNode("UI/Pop Up Panel/Purple BackGround/White Background/Big Text");
+        smallPopUpText = (Label)GetNode("UI/Pop Up Panel/Purple BackGround/White Background/Description Text");
+        roundCountText = (Label)GetNode("UI/Rounds Display/Label");
+        jailTimerTxt = (Label)GetNode("UI/Jail Timer Text");
+        continueButton = (Button)GetNode("UI/Pop Up Panel/Purple BackGround/White Background/Continue Button");
+        popUpPanel = (Control)GetNode("UI/Pop Up Panel");
+        amountText[0] = (Label)GetNode("UI/Top Display/Points Diplay/1/numbr of points");
+        amountText[1] = (Label)GetNode("UI/Top Display/Points Diplay/2/numbr of points");
+
+
         nowPlayingTxt.Text = playersNames[0];
     }
     private void UpdatePopUpText(string smallTxt, string bigTxt)
