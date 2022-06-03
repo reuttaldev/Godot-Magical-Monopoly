@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Fonts/ButtonCrazyText.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Fonts/MediumCrazyText.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Art/Fonts/ButtonCrazyText.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Art/Fonts/MediumCrazyText.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Prefabs/Magic Point Display.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/Now playing text.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Table Leg.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Materials/WoodMaterial.tres" type="Material" id=6]
+[ext_resource path="res://Art/Materials/WoodMaterial.tres" type="Material" id=6]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Cards/Reward Card.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Cards/BaseCard.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Environment" id=5]
 background_mode = 1
@@ -138,7 +141,6 @@ text = "continue"
 text = "Round 1"
 
 [node name="Table" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Table"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -160,6 +162,30 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0769, 0, 32 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7228, 0, 32 )
 
 [node name="Viewport" type="Viewport" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.9886, 6.77578 )
+visible = false
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Board" type="Spatial" parent="."]
+
+[node name="Tiles" type="Spatial" parent="Board"]
+
+[node name="Properties" type="Spatial" parent="Board/Tiles"]
+
+[node name="BaseCard" parent="Board/Tiles/Properties" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54991, 1.5, 0 )
+
+[node name="Reward" type="Spatial" parent="Board/Tiles"]
+
+[node name="Reward Card" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.768, 2, 28.553 )
+
+[node name="Fine" type="Spatial" parent="Board/Tiles"]
+
+[node name="Jail" type="Spatial" parent="Board/Tiles"]
 
 [editable path="UI/Top Display/Points Diplay/1"]
 [editable path="UI/Top Display/Points Diplay/2"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Fonts/MediumCrazyText.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Fonts/LSansBig.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Fonts/LSansSmall.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Art/Fonts/MediumCrazyText.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Art/Fonts/LSansBig.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Art/Fonts/LSansSmall.tres" type="DynamicFont" id=3]
 
 [node name="Magic Point Display" type="Control"]
 margin_left = 39.0
