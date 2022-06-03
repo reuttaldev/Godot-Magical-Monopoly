@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Prefabs/Cards/BaseCard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/Mesh/FineMesh.tres" type="QuadMesh" id=2]
+[ext_resource path="res://Art/Materials/FineCardMaterial.tres" type="Material" id=3]
+
+[node name="FineCard" instance=ExtResource( 1 )]
+
+[node name="MeshInstance" parent="." index="0"]
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 3 )

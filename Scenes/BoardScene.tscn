@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Art/Fonts/ButtonCrazyText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Art/Fonts/MediumCrazyText.tres" type="DynamicFont" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://Prefabs/Table Leg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Art/Materials/WoodMaterial.tres" type="Material" id=6]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/Cards/Reward Card.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Cards/BaseCard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Cards/RewardCard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Cards/JailCard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Cards/PropertyCard.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Cards/FineCard.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Environment" id=5]
 background_mode = 1
@@ -167,25 +169,81 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7228, 0, 32 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.9886, 6.77578 )
 visible = false
 
-[node name="Sprite" type="Sprite" parent="."]
-
 [node name="Board" type="Spatial" parent="."]
 
 [node name="Tiles" type="Spatial" parent="Board"]
 
 [node name="Properties" type="Spatial" parent="Board/Tiles"]
 
-[node name="BaseCard" parent="Board/Tiles/Properties" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54991, 1.5, 0 )
+[node name="PropertyCard1" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard2" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard3" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard4" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard5" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard6" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard7" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard8" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard9" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard10" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard11" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard12" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard13" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard14" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard15" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
+
+[node name="PropertyCard16" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0 )
 
 [node name="Reward" type="Spatial" parent="Board/Tiles"]
 
-[node name="Reward Card" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.768, 2, 28.553 )
+[node name="Reward Card1" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
+
+[node name="Reward Card2" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
+
+[node name="Reward Card3" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
+
+[node name="Reward Card4" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 
 [node name="Fine" type="Spatial" parent="Board/Tiles"]
 
+[node name="FineCard1" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
+
+[node name="FineCard2" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
+
+[node name="FineCard3" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
+
 [node name="Jail" type="Spatial" parent="Board/Tiles"]
+
+[node name="Jail Card" parent="Board/Tiles/Jail" instance=ExtResource( 9 )]
 
 [editable path="UI/Top Display/Points Diplay/1"]
 [editable path="UI/Top Display/Points Diplay/2"]
