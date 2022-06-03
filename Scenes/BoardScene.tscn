@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Art/Fonts/ButtonCrazyText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Art/Fonts/MediumCrazyText.tres" type="DynamicFont" id=2]
@@ -11,6 +11,32 @@
 [ext_resource path="res://Prefabs/Cards/JailCard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/Cards/PropertyCard.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/Cards/FineCard.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/GamePlay/Player.cs" type="Script" id=12]
+[ext_resource path="res://Scripts/UI/UIGameController.cs" type="Script" id=14]
+
+[sub_resource type="CSharpScript" id=6]
+script/source = "using Godot;
+using System;
+
+public class GameController : Node
+{
+    // Declare member variables here. Examples:
+    // private int a = 2;
+    // private string b = \"text\";
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        
+    }
+
+//  // Called every frame. 'delta' is the elapsed time since the previous frame.
+//  public override void _Process(float delta)
+//  {
+//      
+//  }
+}
+"
 
 [sub_resource type="Environment" id=5]
 background_mode = 1
@@ -19,7 +45,7 @@ background_color = Color( 0.72549, 0.541176, 0.87451, 1 )
 [sub_resource type="Theme" id=1]
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 27, 20, 2 )
+extents = Vector3( 27, 27, 2 )
 
 [sub_resource type="CubeMesh" id=3]
 material = ExtResource( 6 )
@@ -28,6 +54,7 @@ size = Vector3( 55, 55, 4 )
 [sub_resource type="Skin" id=4]
 
 [node name="Scene" type="Node"]
+script = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.708389, 0.705822, 0, -0.705822, 0.708389, 0, 27.8033, 47.8499 )
@@ -36,6 +63,7 @@ environment = SubResource( 5 )
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 14 )
 
 [node name="Top Display" type="Control" parent="UI"]
 anchor_right = 1.0
@@ -161,8 +189,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.626, 0, 32 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4317, 0, 32 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.9886, 6.77578 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46917, 6.77578 )
+script = ExtResource( 12 )
 
 [node name="Board" type="Spatial" parent="."]
 
