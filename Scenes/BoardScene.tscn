@@ -198,81 +198,105 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00614, 0 )
 
 [node name="PropertyCard1" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0004, 0, 31.921 )
+script = null
 
 [node name="PropertyCard2" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0144, 0, 31.921 )
+script = null
 
 [node name="PropertyCard3" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.95704, 0, 31.921 )
+script = null
 
 [node name="PropertyCard4" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9445, 0, 31.9215 )
+script = null
 
 [node name="PropertyCard5" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5099, 0, 23.6502 )
+script = null
 
 [node name="PropertyCard6" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 16.7171 )
+script = null
 
 [node name="PropertyCard7" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 2.76621 )
+script = null
 
 [node name="PropertyCard8" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.4704, 0, -4.29426 )
+script = null
 
 [node name="PropertyCard9" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9779, 0, -13.148 )
+script = null
 
 [node name="PropertyCard10" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97611, 0, -13.148 )
+script = null
 
 [node name="PropertyCard11" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03321, 0, -13.148 )
+script = null
 
 [node name="PropertyCard12" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0391, 0, -13.148 )
+script = null
 
 [node name="PropertyCard13" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, -4.64034 )
+script = null
 
 [node name="PropertyCard14" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 2.38275 )
+script = null
 
 [node name="PropertyCard15" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 16.3339 )
+script = null
 
 [node name="PropertyCard16" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 23.3312 )
+script = null
 
 [node name="Reward" type="Spatial" parent="Board/Tiles"]
 
 [node name="Reward Card1" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9548, 0.429424, 32.4281 )
+script = null
 
 [node name="Reward Card2" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.4899, 0, 31.8894 )
+script = null
 
 [node name="Reward Card3" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4706, 0, -13.0812 )
+script = null
 
 [node name="Reward Card4" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.4901, 0, -13.1461 )
+script = null
 
 [node name="Fine" type="Spatial" parent="Board/Tiles"]
 
 [node name="FineCard1" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.921 )
+script = null
 
 [node name="FineCard2" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 9.69474 )
+script = null
 
 [node name="FineCard3" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.4695, 0, 9.37335 )
+script = null
 
 [node name="Jail" type="Spatial" parent="Board/Tiles"]
 
 [node name="Jail Card" parent="Board/Tiles/Jail" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0407963, 0, -13.148 )
+script = null
 
 [editable path="Control/Top Display/Playing Now Text"]
 [editable path="Control/Rounds Display"]

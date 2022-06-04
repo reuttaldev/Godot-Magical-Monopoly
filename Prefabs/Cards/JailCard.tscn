@@ -5,6 +5,7 @@
 [ext_resource path="res://Art/Materials/JailCardMaterial.tres" type="Material" id=3]
 
 [node name="Jail Card" instance=ExtResource( 1 )]
+catagory = 2
 
 [node name="MeshInstance" parent="." index="0"]
 mesh = ExtResource( 2 )

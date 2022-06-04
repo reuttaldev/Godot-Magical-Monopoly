@@ -24,7 +24,7 @@ public class UIGameController : Control
         amountText[0] = GetNode<Label>("Top Display/Points Diplay/1/numbr of points");
         amountText[1] = GetNode<Label>("Top Display/Points Diplay/2/numbr of points");
         nowPlayingTxt = GetNode<Label>("Top Display/Playing Now Text/Label");
-        //nowPlayingTxt.Text = playersNames[0];
+        nowPlayingTxt.Text = playersNames[0];
     }
     private void UpdatePopUpText(string smallTxt, string bigTxt)
     {
