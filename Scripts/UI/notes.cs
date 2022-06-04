@@ -1,6 +1,7 @@
 using Godot;
 using System;
 /*
+Adding messages to each card and making game locic on GameController
 //    GetNode("Button").Connect("pressed", this, nameof(_OnButtonPressed));
 
 public void UpdateScore(int score)
