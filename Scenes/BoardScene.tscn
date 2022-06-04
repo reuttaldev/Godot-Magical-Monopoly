@@ -200,80 +200,193 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00614, 0 )
 [node name="PropertyCard1" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0004, 0, 31.921 )
 
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard1" index="1"]
+cost = 250
+message = "This is hunted house on sale. Who knows what you may find inside?"
+
 [node name="PropertyCard2" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0144, 0, 31.921 )
+
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard2" index="1"]
+message = "An ancient spell book  that has been passed down for generations presents itself. Be cerful, who knows what secrets might be written inside?"
 
 [node name="PropertyCard3" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.95704, 0, 31.921 )
 
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard3" index="1"]
+cost = 150
+message = " This is a magic feather you may use as a better tool for writing new exciting spells! "
+
 [node name="PropertyCard4" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9445, 0, 31.9215 )
+
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard4" index="1"]
+cost = 50
+message = "Look, fragrant dried lavaner for your spells."
 
 [node name="PropertyCard5" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5099, 0, 23.6502 )
 
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard5" index="1"]
+cost = 500
+message = "Amazing, pure moon water. They have been left outside for exacly 36 hours on the night of the fullest moon. You can sense their power just by being close by. It is usful for so many ritual and spells!"
+
 [node name="PropertyCard6" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 16.7171 )
+
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard6" index="1"]
+cost = 200
+message = "black candels for your protection spells. So many equine uses, you feel safer just thinking about it."
 
 [node name="PropertyCard7" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 2.76621 )
 
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard7" index="1"]
+cost = 300
+message = "A bunch of fresh mixed herbs, wrapped in a white string - looks like rosmary, sage and motherwort. Great for protection!"
+
 [node name="PropertyCard8" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.4704, 0, -4.29426 )
+
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard8" index="1"]
+message = "It's a magical herbs tea! It has healing and enriching properties."
 
 [node name="PropertyCard9" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9779, 0, -13.148 )
 
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard9" index="1"]
+cost = 350
+message = "Long  cinnamon sticks for your spell. Granma always told us that that is the best remedy for good furtune."
+
 [node name="PropertyCard10" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97611, 0, -13.148 )
+
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard10" index="1"]
+cost = 500
+message = "It's a protection symbols drawing class. It may be a little too advanced for my skills, but if you will succeed, the possibilites are endless!"
 
 [node name="PropertyCard11" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03321, 0, -13.148 )
 
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard11" index="1"]
+cost = 500
+message = "Finally, the opportunity sign your name in the great book of the beast. You are so excited for your new path of dark. It is what every little girl dreams of!"
+
 [node name="PropertyCard12" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0391, 0, -13.148 )
+
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard12" index="1"]
+message = "It's cloves for your spells. They smell a little funky, but they have proven to be very powerful before."
 
 [node name="PropertyCard13" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, -4.64034 )
 
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard13" index="1"]
+cost = 250
+message = "It's a fresh bunch of rose petals. They smell amazing! You may summon a brand new lover."
+
 [node name="PropertyCard14" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 2.38275 )
+
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard14" index="1"]
+cost = 50
+message = "Look - dried bay leafs. Nana always said, if you write your wished with a red pen on then and burn it in the fire of a black candle, they must come through!"
 
 [node name="PropertyCard15" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 16.3339 )
 
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard15" index="1"]
+cost = 450
+message = "It is tiny glass jars, with a necklace attached to them. These are usful for making protection spells for your friends. They are not cheap, but knowing your friends are safe may lift your spirits."
+
 [node name="PropertyCard16" parent="Board/Tiles/Properties" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 23.3312 )
+
+[node name="Card Properties" parent="Board/Tiles/Properties/PropertyCard16" index="1"]
+cost = 50
+message = "It is eucalyptus smelling inscene, to cleanse yours and your family home."
 
 [node name="Reward" type="Spatial" parent="Board/Tiles"]
 
 [node name="Reward Card1" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.517, 0.429424, 31.8456 )
 
+[node name="Card Properties" parent="Board/Tiles/Reward/Reward Card1" index="1"]
+cost = 150
+message = "Safe journeys, young witch!"
+
 [node name="Reward Card2" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.4899, 0, 31.8894 )
+
+[node name="Card Properties" parent="Board/Tiles/Reward/Reward Card2" index="1"]
+cost = 400
+message = "You have recived a good luck spell jar! It must be good karma coming back to you."
 
 [node name="Reward Card3" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4706, 0, -13.0812 )
 
+[node name="Card Properties" parent="Board/Tiles/Reward/Reward Card3" index="1"]
+cost = 300
+message = "You brewed a magical herbs tea that has increased your powers!"
+
 [node name="Reward Card4" parent="Board/Tiles/Reward" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.4901, 0, -13.1461 )
+
+[node name="Card Properties" parent="Board/Tiles/Reward/Reward Card4" index="1"]
+cost = 150
+message = "You recived a red collar with a golden bell on it for your companion kitten. The bell sound vibrates to your ears and  increacess you magical abilities."
 
 [node name="Fine" type="Spatial" parent="Board/Tiles"]
 
 [node name="FineCard1" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.921 )
 
+[node name="Card Properties" parent="Board/Tiles/Fine/FineCard1" index="1"]
+cost = 250
+message = "Oh no, some one has put a curse on you! "
+
 [node name="FineCard2" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 9.69474 )
+
+[node name="Card Properties" parent="Board/Tiles/Fine/FineCard2" index="1"]
+message = "You have fallen ill and had to buy medicine. You lost some points, but you feel so much better now."
 
 [node name="FineCard3" parent="Board/Tiles/Fine" instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.4695, 0, 9.37335 )
 
-[node name="Jail" type="Spatial" parent="Board/Tiles"]
+[node name="Card Properties" parent="Board/Tiles/Fine/FineCard3" index="1"]
+cost = 450
+message = "Your flying broom is broken and needs immidiate fixing! Better luck next time!"
 
-[node name="Jail Card" parent="Board/Tiles/Jail" instance=ExtResource( 9 )]
+[node name="Jail Card" parent="Board/Tiles" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0407963, 0, -13.148 )
+
+[node name="Card Properties" parent="Board/Tiles/Jail Card" index="1"]
+message = "You hear whispers in town that the witch hunters are getting closer and closer. You must go into hiding until it is safe. They are still burning witches alive like it's the sixties!"
 
 [editable path="Control/Top Display/Playing Now Text"]
 [editable path="Control/Rounds Display"]
+[editable path="Board/Tiles/Properties/PropertyCard1"]
+[editable path="Board/Tiles/Properties/PropertyCard2"]
+[editable path="Board/Tiles/Properties/PropertyCard3"]
+[editable path="Board/Tiles/Properties/PropertyCard4"]
+[editable path="Board/Tiles/Properties/PropertyCard5"]
+[editable path="Board/Tiles/Properties/PropertyCard6"]
+[editable path="Board/Tiles/Properties/PropertyCard7"]
+[editable path="Board/Tiles/Properties/PropertyCard8"]
+[editable path="Board/Tiles/Properties/PropertyCard9"]
+[editable path="Board/Tiles/Properties/PropertyCard10"]
+[editable path="Board/Tiles/Properties/PropertyCard11"]
+[editable path="Board/Tiles/Properties/PropertyCard12"]
+[editable path="Board/Tiles/Properties/PropertyCard13"]
+[editable path="Board/Tiles/Properties/PropertyCard14"]
+[editable path="Board/Tiles/Properties/PropertyCard15"]
+[editable path="Board/Tiles/Properties/PropertyCard16"]
+[editable path="Board/Tiles/Reward/Reward Card1"]
+[editable path="Board/Tiles/Reward/Reward Card2"]
+[editable path="Board/Tiles/Reward/Reward Card3"]
+[editable path="Board/Tiles/Reward/Reward Card4"]
+[editable path="Board/Tiles/Fine/FineCard1"]
+[editable path="Board/Tiles/Fine/FineCard2"]
+[editable path="Board/Tiles/Fine/FineCard3"]
+[editable path="Board/Tiles/Jail Card"]
