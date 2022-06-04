@@ -1,6 +1,8 @@
 using Godot;
 using System;
 /*
+//    GetNode("Button").Connect("pressed", this, nameof(_OnButtonPressed));
+
 public void UpdateScore(int score)
 {
     GetNode<Label>("ScoreLabel").Text = score.ToString();

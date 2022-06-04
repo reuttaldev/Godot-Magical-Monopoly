@@ -1,8 +1,8 @@
 using Godot;
 using System;
-
 public class Player : KinematicBody
 {
+    
     // MP is magic points
     // export is not like serializable field, you cannot assign a node in the editor :(
     [Export]
@@ -18,9 +18,10 @@ public class Player : KinematicBody
     private GameController gameController;
     public override void _Ready()
     {
-        uiController = (UIGameController)GetNode("UIGameController");
-        gameController = (GameController)GetNode("Game Controller");
+        uiController = (UIGameController)GetNode("../Control");
+        gameController = (GameController)GetNode("../");
         uiController.UpdateAmountDisplay(this.playerIndex, MPStartAmount);
+        GD.Print(uiController);
     }
 
     #region CURRENCY CONTROLLERS

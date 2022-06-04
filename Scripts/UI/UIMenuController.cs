@@ -1,8 +1,9 @@
 using Godot;
 using System;
-public class MenuController : Node
+
+public class UIMenuController : Node
 {
-    [Signal]
+     [Signal]
     // this is connected to the script of the main game 
     public delegate void StartGame();
     public void OnClick()

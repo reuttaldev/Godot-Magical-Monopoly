@@ -13,19 +13,18 @@ public class UIGameController : Control
 
     public override void _Ready()
     {
-        // loading nodes from scene, unfortunately you cannot set them in the editor using serializable field (or export here) like in unity
-        nowPlayingTxt = (Label)GetNode("UI/Top Display/Now playing text");
-        bigPopUpTxt = (Label)GetNode("UI/Pop Up Panel/Purple BackGround/White Background/Big Text");
-        smallPopUpText = (Label)GetNode("UI/Pop Up Panel/Purple BackGround/White Background/Description Text");
-        roundCountText = (Label)GetNode("UI/Rounds Display/Label");
-        jailTimerTxt = (Label)GetNode("UI/Jail Timer Text");
-        continueButton = (Button)GetNode("UI/Pop Up Panel/Purple BackGround/White Background/Continue Button");
-        popUpPanel = (Control)GetNode("UI/Pop Up Panel");
-        amountText[0] = (Label)GetNode("UI/Top Display/Points Diplay/1/numbr of points");
-        amountText[1] = (Label)GetNode("UI/Top Display/Points Diplay/2/numbr of points");
-
-
-        nowPlayingTxt.Text = playersNames[0];
+        //loading nodes from scene, unfortunately you cannot set them in the editor using serializable field (or export here) like in unity
+        // if a node is a scene and you mark it as edible children, it doesnt load it correctly
+        bigPopUpTxt = GetNode<Label>("Popup/Purple BackGround/White Background/Big Txt");
+        smallPopUpText = GetNode<Label>("Popup/Purple BackGround/White Background/Description Text");
+        roundCountText = (Godot.Label)GetNode("Rounds Display/Label");
+        jailTimerTxt = GetNode<Label>("Popup/Purple BackGround/White Background/Jail Timer Text");
+        continueButton = GetNode<Button>("Popup/Purple BackGround/White Background/Continue Button");
+        popUpPanel = GetNode<Control>("Popup");
+        amountText[0] = GetNode<Label>("Top Display/Points Diplay/1/numbr of points");
+        amountText[1] = GetNode<Label>("Top Display/Points Diplay/2/numbr of points");
+        nowPlayingTxt = GetNode<Label>("Top Display/Playing Now Text/Label");
+        //nowPlayingTxt.Text = playersNames[0];
     }
     private void UpdatePopUpText(string smallTxt, string bigTxt)
     {
