@@ -84,7 +84,7 @@ public class Player : KinematicBody
             uiController.UpdateAmountDisplay(playerIndex, this.mpAmount);
         }
         else
-            gameController.GameIsOver();
+            gameController.GameIsOver(playerIndex);
         GD.Print("UPDATING PLAYERS "+playerIndex+" AMOUNT = "+this.mpAmount);
         
 

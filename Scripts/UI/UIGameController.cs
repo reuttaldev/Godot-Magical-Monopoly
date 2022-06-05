@@ -109,8 +109,10 @@ public class UIGameController : Control
     }
     internal void GameOver(string winnerName)
     {
+        GD.Print("ui game over over");
         ChangePopUpText("You ran out of money",winnerName + " Won!" );
         OpenPopUpPanal(false);
+        
         continueButton.Visible = false;
         yesButton.Visible = false;
         noButton.Visible = false;

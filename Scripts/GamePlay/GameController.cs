@@ -43,6 +43,8 @@ public class GameController : Node
 
     private void StartTurn()
     {
+        if(gameOver)
+            return;
         int result = diceController.RollDice();
         GD.Print("cube rolled "+result);
     }
@@ -58,7 +60,7 @@ public class GameController : Node
     }
         internal void MoveCurrentPlayer(int howMuch)
     {
-        GD.Print("Moving player "+(currentPlayer+1)+ " " +howMuch);
+        GD.Print("Moving player "+(currentPlayer)+ " " +howMuch);
         Player player = playersArry[currentPlayer];
         int currentPosition = player.IndexOnBoard;
         int targetPosIndex = currentPosition + howMuch;
@@ -100,7 +102,11 @@ public class GameController : Node
         Card card = cardArry[player.IndexOnBoard];
         CardCatagory catagory = card.Catagory;
         int cost = card.Cost;
-        GD.Print((currentPlayer +1)+" landed on card with cat "+catagory+" and cost of "+card.Cost);
+        if ( catagory == CardCatagory.property)
+        {
+            uiController.DisplayPopUp(catagory,card.message,cost);
+            return;
+        }
         if ( catagory == CardCatagory.takenProperty)
         {
             // if it is owned by the opponent        
@@ -111,6 +117,7 @@ public class GameController : Node
                 player.SubtractMagicPoints(cost);
                 // add those point to the opponent
                 playersArry[(currentPlayer+1)%2].AddMagicPoints(cost);
+                GD.Print((currentPlayer)+" landed on card with cat "+catagory+" and cost of "+cost);
             }
             // if we land on a card we already own
             else
@@ -125,9 +132,12 @@ public class GameController : Node
         if(catagory == CardCatagory.jail)
             player.JailTime = jailWaitTurns;
 
-        uiController.UpdateAmountDisplay(currentPlayer,player.MpAmount);
-        uiController.DisplayPopUp(catagory,card.message,cost);
-        SwitchTurns();
+        if(!gameOver)
+        {
+            uiController.DisplayPopUp(catagory,card.message,cost);
+            uiController.UpdateAmountDisplay(currentPlayer,player.MpAmount);
+            SwitchTurns();
+        }
     }
 
     // this method will be conected to the continue button in the pop up panel
@@ -148,7 +158,9 @@ public class GameController : Node
             player.SubtractMagicPoints( card.Cost);
             card.ChangeCardOwnership(currentPlayer);
             uiController.UpdateAmountDisplay(currentPlayer,player.MpAmount);
+            SwitchTurns();
             ContinueButton();
+
         }
         else
         {
@@ -172,15 +184,12 @@ public class GameController : Node
         currentPlayer = 0;
         uiController.ChangeNowPlayingText(playersNames[currentPlayer]);
     }
-    internal void GameIsOver()
+    internal void GameIsOver(int losingIndex)
     {
         GD.Print("Game is over");
         gameOver = true;
-        string winnerName = "";
-        if (playersArry[0].MpAmount >= playersArry[1].MpAmount)
-            winnerName = playersNames[0];
-        else
-            winnerName = playersNames[1];
+        string winnerName = playersNames[losingIndex];
         uiController.GameOver(winnerName);
+        uiController.UpdateAmountDisplay(losingIndex,0);
     }
 }
