@@ -6,7 +6,9 @@ public class GameController : Node
     const int numOfCards = 24;
     readonly string[] playersNames = {"Player 1","Player 2"};
     [Export]
-    private float jailTimerLength = 300 ,playerMovingSpeed=15;
+    private float playerMovingSpeed=10;
+    [Export]
+    private int jailWaitTurns = 2; // the number of turns a player has to wait in order to get out of jail
     private int currentPlayer = 0, roundCounter =1;
     private bool gameOver = false;
     private Card [] cardArry = new Card [numOfCards]; // an arry that contains all card instances from scene
@@ -46,14 +48,20 @@ public class GameController : Node
     }
     private void SwitchTurns()
     {
-        currentPlayer = (currentPlayer+1)%2;
+        int next = (currentPlayer+1)%2;
+        //if(playersArry[currentPlayer].JailTime != 0)
+        //{
+         //   playersArry[currentPlayer].JailTime-=1;
+        //}
+        //else
+            currentPlayer = next;
     }
         internal void MoveCurrentPlayer(int howMuch)
     {
         GD.Print("Moving player "+(currentPlayer+1)+ " " +howMuch);
         Player player = playersArry[currentPlayer];
-        int currentPosition = player.IndexOnBard;
-        int targetPosIndex = currentPosition + howMuch+1;
+        int currentPosition = player.IndexOnBoard;
+        int targetPosIndex = currentPosition + howMuch;
         // trigger the move to the next card
         HandlePlayerArriving(currentPosition,targetPosIndex);
     }
@@ -71,51 +79,54 @@ public class GameController : Node
         int nextIndex = currentIndex+1;
         GD.Print("GameController: called to move player to index"+nextIndex);
         // if we are on the last tile
-        if (nextIndex == cardArry.Length - 1)
+        if (nextIndex >= cardArry.Length - 1)
         {
             targetIndex = targetIndex - currentIndex;
             nextIndex = 0;
-            // meaning we have started a new circle
-            roundCounter++;
-            uiController.ChangeRoundCountText(roundCounter);
+            // we need to do this only once, otherwise the round will change whenever ONE of the player passes start (it will change twice accidentaly)
+            if(currentPlayer == 0) // if the other player before it didnt cross yet
+            {
+                roundCounter++;
+                uiController.ChangeRoundCountText(roundCounter);
+            }
         }
-        Vector3 cardTransform = cardsTransforms[nextIndex].origin;
          //adding these values so the player wont bump into each other while being on the same tile
-        Vector3 nextTransform = new Vector3(cardTransform[0] + playersArry[currentPlayer].PaddingValue[0], 0, cardTransform[2] - playersArry[currentPlayer].PaddingValue[2]);
-        playersArry[currentPlayer].MoveTo(targetIndex, nextTransform);
+        playersArry[currentPlayer].MoveTo(targetIndex,nextIndex, cardsTransforms[nextIndex].origin);
     }
-
     void LandOnCard(int positionOnBoard)
     {
         Player player = playersArry[currentPlayer];
         // the card the player is currently on
-        Card card = cardArry[player.IndexOnBard];
+        Card card = cardArry[player.IndexOnBoard];
         CardCatagory catagory = card.Catagory;
-        if ( catagory == CardCatagory.property )
-        {
-            // make the player buy it
-            player.SubtractMagicPoints(card.Cost);
-            card.ChangeCardOwnership(currentPlayer);
-        }
-        else if ( catagory == CardCatagory.takenProperty)
+        int cost = card.Cost;
+        GD.Print((currentPlayer +1)+" landed on card with cat "+catagory+" and cost of "+card.Cost);
+        if ( catagory == CardCatagory.takenProperty)
         {
             // if it is owned by the opponent        
             if (card.OwnedBy != currentPlayer)
             {
-                // pay the fine
-                player.SubtractMagicPoints(card.Cost);
+                //The fine is equal to 50% from the amount your opponent has paid in order to buy the property. 
+                cost =cost/2;
+                player.SubtractMagicPoints(cost);
                 // add those point to the opponent
-                playersArry[(currentPlayer+1)%2].AddMagicPoints(card.Cost);
+                playersArry[(currentPlayer+1)%2].AddMagicPoints(cost);
+            }
+            // if we land on a card we already own
+            else
+            {
+
             }
         }
-        else if (catagory == CardCatagory.reward)
-            player.AddMagicPoints(card.Cost);
-        else if(catagory == CardCatagory.fine)
-            player.SubtractMagicPoints(card.Cost);
-        else if(catagory == CardCatagory.jail)
-            uiController.ShowJailPopUp( jailTimerLength);
+        if (catagory == CardCatagory.reward)
+            player.AddMagicPoints(cost);
+        if(catagory == CardCatagory.fine)
+            player.SubtractMagicPoints(cost);
+        if(catagory == CardCatagory.jail)
+            player.JailTime = jailWaitTurns;
 
-        uiController.DisplayPopUp(catagory,card.message,card.Cost);
+        uiController.UpdateAmountDisplay(currentPlayer,player.MpAmount);
+        uiController.DisplayPopUp(catagory,card.message,cost);
         SwitchTurns();
     }
 
@@ -126,14 +137,28 @@ public class GameController : Node
         uiController.ChangeNowPlayingText(playersNames[currentPlayer]); 
         StartTurn();
     }
-
     public void YesButton()
     {
-        
+        // if the player can buy it
+        Player player = playersArry[currentPlayer];
+        Card card = cardArry[player.IndexOnBoard];
+        if(player.MpAmount - card.Cost>=0)
+        {
+            // make the player buy it
+            player.SubtractMagicPoints( card.Cost);
+            card.ChangeCardOwnership(currentPlayer);
+            uiController.UpdateAmountDisplay(currentPlayer,player.MpAmount);
+            ContinueButton();
+        }
+        else
+        {
+            // display a text saying you dont have enough points
+            uiController.CantBuyText();
+        }
     }
     public void NoButton()
     {
-
+        ContinueButton();
     }
     internal void RestartGame(int firstPlayPos,int secondPlayerPos)
     {
@@ -149,6 +174,7 @@ public class GameController : Node
     }
     internal void GameIsOver()
     {
+        GD.Print("Game is over");
         gameOver = true;
         string winnerName = "";
         if (playersArry[0].MpAmount >= playersArry[1].MpAmount)

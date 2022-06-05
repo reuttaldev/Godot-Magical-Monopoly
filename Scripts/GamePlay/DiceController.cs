@@ -9,7 +9,7 @@ public class DiceController : Control
     [Export]
     private float faceDuration = 0.3f;     // the number of seconds to show each face of the cube
     [Export]
-    private float showResultDuration = 30;//the number of secs to display the result at the end
+    private float showResultDuration = 2;//the number of secs to display the result at the end
     private float time =0, lastFaceTime = 0;
     private int result = 0;
     private bool roll =false,showResult = false;// when this is true, the cube will be triggered to roll

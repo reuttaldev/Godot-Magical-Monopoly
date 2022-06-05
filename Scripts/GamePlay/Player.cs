@@ -3,23 +3,24 @@ using System;
 public class Player : KinematicBody
 {
     
-    private const int MPStartAmount = 300;
+    private const int MPStartAmount = 1500 ;
     [Export]
-    private float constY; // the players y value that it looks like hes on top of the table
+    private Vector3 startingPos, paddingValue; // padding value is that the players wont be on top of each other when on the same tile
     [Export]
-    private Vector3 startingPos, paddingVale; // padding value is that the players wont be on top of each other when on the same tile
-    [Export]
-    private int playerIndex, indexOnBard,targetIdex; //posOnBoard will mark the index of the tile the player is currently standing on
+    public int playerIndex;
+    // current index is the index we are currently standing on
+    // next transfom in the next position in our path
+    // target index is our final destanation
+    private int indexOnBoard,targetIdex, nextIndex; 
     // MP is magic points
     private int mpAmount = 0; // magic points amount
     private Vector3 direction = Vector3.Zero, nextTransform;
-    public int MpAmount { get; }
-    private bool inJail = false;
-    public int PlayerIndex { get; }
-    public bool InJail  { get; set;  }
-    public int IndexOnBard  { get; set;  }
-    public int TargetIndex  { get; set;  }
-    public Vector3 PaddingValue {get;}
+    public int MpAmount { get { return this.mpAmount; } }
+    private int jailTime = 0; // the number of turns the player has left in jail. 0 means its not in jail
+    public int PlayerIndex { get { return this.playerIndex; } }
+    public int JailTime  {  get { return this.jailTime; } set { this.jailTime = value; }  }
+    public int IndexOnBoard  {  get { return this.indexOnBoard; } set { this.indexOnBoard = value; }  }
+    public int TargetIndex  {  get { return this.targetIdex; } set { this.targetIdex = value; }  }
     private UIGameController uiController;	
     private GameController gameController;
     [Signal]
@@ -33,35 +34,32 @@ public class Player : KinematicBody
     }
     internal void SetUpPlayer()
     {
-        uiController.UpdateAmountDisplay(this.playerIndex, MPStartAmount);
         mpAmount = MPStartAmount;
-        indexOnBard =0;
-        Translation = startingPos;
+        uiController.UpdateAmountDisplay(this.playerIndex, MPStartAmount);
+        indexOnBoard =0;
+        Translation =new Vector3(startingPos[0]+paddingValue[0],paddingValue[1],startingPos[2]+paddingValue[2]);
+        jailTime = 0;
     }
     #region MOVMENT
-    internal void MoveTo(int tPos,Vector3 nTransform)
+    internal void MoveTo(int tindex,int nIndex, Vector3 nTransform)
     {
-        // current index is the index we are currently standing on
-        // next transfom in the next position in our path
-        // target index is our final destanation
-        targetIdex = tPos;
-        nextTransform =   new Vector3(nTransform[0],constY,nTransform[2]);
+        targetIdex = tindex;
+        nextIndex = nIndex;
+        nextTransform =   new Vector3(nTransform[0]+paddingValue[0],paddingValue[1],nTransform[2]+paddingValue[2]);
         SetPhysicsProcess(true);
-        GD.Print("Player: called to move to "+nextTransform);
     }
 
     //happens at a fixed rate, 60 times per second by default
     // we shut this off and on depending if we need to move or not.
     public override void _PhysicsProcess(float delta)
     {
-        GD.Print("process");
         // when arrived at next position
         if(nextTransform.DistanceTo(Transform.origin)<0.5)
         {
             // set a signal to the game controller we have stopped moving
-            indexOnBard++;
+            this.indexOnBoard = nextIndex;
             SetPhysicsProcess(false);
-            EmitSignal(nameof(arrived),indexOnBard,targetIdex);
+            EmitSignal(nameof(arrived),indexOnBoard,targetIdex);
         }
         else
         {
@@ -75,6 +73,8 @@ public class Player : KinematicBody
     {
         this.mpAmount += amount;
         uiController.UpdateAmountDisplay(playerIndex, this.mpAmount);
+        GD.Print("UPDATING PLAYERS "+playerIndex+" AMOUNT = "+this.mpAmount);
+
     }
     internal void SubtractMagicPoints(int amount)
     {
@@ -85,6 +85,7 @@ public class Player : KinematicBody
         }
         else
             gameController.GameIsOver();
+        GD.Print("UPDATING PLAYERS "+playerIndex+" AMOUNT = "+this.mpAmount);
         
 
     }

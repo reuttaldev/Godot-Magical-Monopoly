@@ -6,8 +6,8 @@ using System.Collections.Generic;
 public class UIGameController : Control
 {
     private Label [] amountText=new Label[2];
-    private Label nowPlayingTxt, bigPopUpTxt, smallPopUpText,roundCountText, jailTimerTxt;
-    private Control popUpPanel;
+    private Label nowPlayingTxt, bigPopUpTxt, smallPopUpText,roundCountText,cantBuyText;
+    private Popup popUpPanel;
     private Button continueButton, yesButton, noButton;
     private GameController gameController;
 
@@ -18,14 +18,14 @@ public class UIGameController : Control
         bigPopUpTxt = GetNode<Label>("Popup/Purple BackGround/White Background/Big Txt");
         smallPopUpText = GetNode<Label>("Popup/Purple BackGround/White Background/Description Text");
         roundCountText = (Godot.Label)GetNode("Rounds Display/Label");
-        jailTimerTxt = GetNode<Label>("Popup/Purple BackGround/White Background/Jail Timer Text");
         noButton = GetNode<Button>("Popup/Purple BackGround/White Background/No Button");
         yesButton  = GetNode<Button>("Popup/Purple BackGround/White Background/Yes Button");
         continueButton = GetNode<Button>("Popup/Purple BackGround/White Background/Continue Button");
-        popUpPanel = GetNode<Control>("Popup");
+        popUpPanel = GetNode<Popup>("Popup");
         amountText[0] = GetNode<Label>("Top Display/Points Diplay/1/numbr of points");
         amountText[1] = GetNode<Label>("Top Display/Points Diplay/2/numbr of points");
         nowPlayingTxt = GetNode<Label>("Top Display/Playing Now Text/Label");
+        cantBuyText  = GetNode<Label>("Popup/Purple BackGround/White Background/Cant Buy Text");
         nowPlayingTxt.Text = "Player 1";
         gameController = (GameController)GetNode("../");
         yesButton.Connect("pressed",gameController, "YesButton");
@@ -38,8 +38,8 @@ public class UIGameController : Control
         switch (cat)
         {
             case CardCatagory.property:
-                s = "a";
-                b ="a" ;
+                s = description;
+                b ="Do you want to buy this special item?" ;
                 break;
             case CardCatagory.takenProperty:
                 s = "You landed on your opponent's property!";
@@ -53,46 +53,51 @@ public class UIGameController : Control
                 s = description;
                 b = "Lost " + amount.ToString() + " Magic Points!";
                 break;
+            case CardCatagory.jail:
+                s = description; //"You hear whispers in town that the witch hunters are getting closer and closer. You must go into hiding until it is safe. They are still burning witches alive like it's the sixties!"
+                b = "Wait for 2 turns!";
+                break;
                 
         }
         ChangePopUpText(s,b);
-
+        OpenPopUpPanal(cat == CardCatagory.property);
     }
     private void ChangePopUpText(string smallTxt, string bigTxt)
     {
-        OpenPopUpPanal();
         smallPopUpText.Text = smallTxt;
         bigPopUpTxt.Text = bigTxt;
-    }
-    public void ShowJailPopUp(float timerLength)
-    {
-        GD.Print("Starting show jail pop up");
-        if (timerLength != 0)
-        {
-            ChangePopUpText( "You hear whispers in town that the witch hunters are getting closer and closer. You must go into hiding until it is safe. They are still burning witches alive like it's the sixties!", "");
-            jailTimerTxt.Visible = true;
-            bigPopUpTxt.Visible = false;
-        }
-    }
-    internal void CloseJailPopUp()
-    {
-        jailTimerTxt.Visible = false;
-        ClosePopUpPanal();
     }
 
     // this method activates UI pop up and changes the amount display
     internal void UpdateAmountDisplay(int playerIndex, int amount)
     {
-        GD.Print("Updating amount display");
+        GD.Print("Updating amount display for player "+playerIndex);
         amountText[playerIndex].Text = amount.ToString();
     }
     internal void ClosePopUpPanal()
     {
-        popUpPanel.Visible = false;
+        cantBuyText.Visible = false;
+        popUpPanel.Hide();
     }
-    internal void OpenPopUpPanal()
+    internal void OpenPopUpPanal(bool freeProperty)
     {
-        popUpPanel.Visible = true;
+        if(freeProperty)
+        {
+            yesButton.Visible = true;
+            noButton.Visible = true;
+            continueButton.Visible = false;
+        }
+        else
+        {
+            continueButton.Visible = true;
+            yesButton.Visible = false;
+            noButton.Visible = false;
+        }
+        popUpPanel.Show();
+    }
+    internal void CantBuyText()
+    {
+        cantBuyText.Visible = true;
     }
     internal void ChangeRoundCountText(int roundCounter)
     {
@@ -105,7 +110,10 @@ public class UIGameController : Control
     internal void GameOver(string winnerName)
     {
         ChangePopUpText("You ran out of money",winnerName + " Won!" );
+        OpenPopUpPanal(false);
         continueButton.Visible = false;
+        yesButton.Visible = false;
+        noButton.Visible = false;
     }
     
 }
