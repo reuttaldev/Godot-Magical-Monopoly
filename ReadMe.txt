@@ -14,5 +14,5 @@ Workflow:
 4. Once the player is at the target position moving, LandOnCard() in GameController handles the buying process, rewards, fines, and jail.
 5. Once all actions are done, the turn moves to the next player.
 
-Thank you,
+Thank you and enjoy,
 Reut
