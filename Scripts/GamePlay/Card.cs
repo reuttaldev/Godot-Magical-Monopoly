@@ -14,7 +14,7 @@ public class Card : Spatial
     private int cost=100;
     [Export]
     private int ownedBy = -1; // =0 if own by player 1 and =2 if owned by player 2, -1 if owned by no one
-    public int OwnedBy {get;}
+    public int OwnedBy {get{return this.ownedBy;}}
     [Export]
     internal string message;
     public CardCatagory Catagory { get { return this.catagory; } }
