@@ -114,10 +114,10 @@ public class GameController : Node
             {
                 //The fine is equal to 50% from the amount your opponent has paid in order to buy the property. 
                 cost =cost/2;
+                GD.Print("original cost = "+card.Cost+" new cost "+cost);
                 player.SubtractMagicPoints(cost);
                 // add those point to the opponent
                 playersArry[(currentPlayer+1)%2].AddMagicPoints(cost);
-                GD.Print((currentPlayer)+" landed on card with cat "+catagory+" and cost of "+cost);
             }
             // if we land on a card we already own
             else

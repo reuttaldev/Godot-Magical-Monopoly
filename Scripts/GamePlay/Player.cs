@@ -73,7 +73,6 @@ public class Player : KinematicBody
     {
         this.mpAmount += amount;
         uiController.UpdateAmountDisplay(playerIndex, this.mpAmount);
-        GD.Print("UPDATING PLAYERS "+playerIndex+" AMOUNT = "+this.mpAmount);
 
     }
     internal void SubtractMagicPoints(int amount)
@@ -85,7 +84,7 @@ public class Player : KinematicBody
         }
         else
             gameController.GameIsOver(playerIndex);
-        GD.Print("UPDATING PLAYERS "+playerIndex+" AMOUNT = "+this.mpAmount);
+        GD.Print("subtractin "+amount);
         
 
     }
