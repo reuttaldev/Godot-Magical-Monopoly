@@ -11,7 +11,7 @@ public class UIGameController : Control
     private Button continueButton, yesButton, noButton,closeButton;
     private GameController gameController;
     private  Sprite3D[] cardSprites;
-    private Color [] cardTint = new Color[]{ new Color( 0.94f, 0.97f, 1f, 1 ),new Color( 0.94f, 0.97f, 1, 1 )};
+    private Color [] cardTint = new Color[]{ new Color( 0f, 0f, 0f, 1 ),new Color( 0f, 0f, 0, 1 )};
 
     public override void _Ready()
     {
@@ -82,11 +82,11 @@ public class UIGameController : Control
     {
         //Texture t = (Texture)GD.Load(""+(player+1).ToString());
         cardSprites[cardIndex].Modulate = cardTint[playerIndex];
+        GD.Print("Adding tint to card with index "+cardIndex);
     }
     // this method activates UI pop up and changes the amount display
     internal void UpdateAmountDisplay(int playerIndex, int amount)
     {
-        GD.Print("Updating amount display for player "+playerIndex);
         amountText[playerIndex].Text = amount.ToString();
     }
     internal void ClosePopUpPanel()

@@ -46,7 +46,6 @@ public class GameController : Node
         if(gameOver)
             return;
         int result = diceController.RollDice();
-        GD.Print("cube rolled "+result);
     }
     private void SwitchTurns()
     {
@@ -60,7 +59,6 @@ public class GameController : Node
     }
         internal void MoveCurrentPlayer(int howMuch)
     {
-        GD.Print("Moving player "+(currentPlayer)+ " " +howMuch);
         Player player = playersArry[currentPlayer];
         int currentPosition = player.IndexOnBoard;
         int targetPosIndex = currentPosition + howMuch;
@@ -73,13 +71,11 @@ public class GameController : Node
         // figure out if it needs to move any more, or it is at the target position
         if(currentIndex == targetIndex)
         {
-            GD.Print("got to final destenation");
             LandOnCard(currentIndex);
             return;
         }
         // next tile position on the board
         int nextIndex = currentIndex+1;
-        GD.Print("GameController: called to move player to index"+nextIndex);
         // if we are on the last tile
         if (nextIndex >= cardArry.Length - 1)
         {
@@ -102,6 +98,8 @@ public class GameController : Node
         Card card = cardArry[player.IndexOnBoard];
         CardCategory catagory = card.Catagory;
         int cost = card.Cost;
+        GD.Print(" index "+player.IndexOnBoard);
+
         switch (catagory)
         {
             case CardCategory.property:
@@ -117,23 +115,26 @@ public class GameController : Node
                     player.SubtractMagicPoints(cost);
                     // add those point to the opponent
                     playersArry[(currentPlayer+1)%2].AddMagicPoints(cost);
+                    SwitchTurns();
                 }
                 break;
             case CardCategory.reward:
                 player.AddMagicPoints(cost);
+                SwitchTurns();
                 break;
             case CardCategory.fine:
                 player.SubtractMagicPoints(cost);
+                SwitchTurns();
                 break;
             case CardCategory.jail:
                 player.JailTime = jailWaitTurns;
+                SwitchTurns();
                 break;
         }
         if(!gameOver)
         {
             uiController.DisplayPopUp(catagory,card.message,cost);
             uiController.UpdateAmountDisplay(currentPlayer,player.MpAmount);
-            SwitchTurns();
         }
     }
     
@@ -150,6 +151,7 @@ public class GameController : Node
         // if the player can buy it
         Player player = playersArry[currentPlayer];
         Card card = cardArry[player.IndexOnBoard];
+        GD.Print("card index "+player.IndexOnBoard);
         if(player.MpAmount - card.Cost>=0)
         {
             // make the player buy it
@@ -173,7 +175,6 @@ public class GameController : Node
     }
     internal void RestartGame(int firstPlayPos,int secondPlayerPos)
     {
-        GD.Print("Game Reopened");
         uiController.ClosePopUpPanel();
         for (int i = 0; i < playersArry.Length; i++)
         {

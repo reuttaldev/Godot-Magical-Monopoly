@@ -9,7 +9,6 @@ public class UIMenuController : Node
     public void OnClick()
     {
         // change to the board scene
-        GD.Print("start button is being pressed ");
         GetTree().ChangeScene("res://Scenes/BoardScene.tscn");
         //EmitSignal("StartGame");
     }

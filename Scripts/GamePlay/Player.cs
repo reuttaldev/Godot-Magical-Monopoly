@@ -84,9 +84,10 @@ public class Player : KinematicBody
         }
         else
             gameController.GameIsOver(playerIndex);
-        GD.Print("subtractin "+amount);
+        GD.Print("subtract "+amount);
         
 
     }
+
     #endregion
 }
