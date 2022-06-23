@@ -3,7 +3,7 @@ using System;
 
 public class GameController : Node
 {
-    const int NUM_OF_CARDS = 24;
+    internal const int NUM_OF_CARDS = 24;
     readonly string[] playersNames = {"Player 1","Player 2"};
     [Export]
     private float playerMovingSpeed=10;
@@ -156,6 +156,7 @@ public class GameController : Node
             player.SubtractMagicPoints( card.Cost);
             card.ChangeCardOwnership(currentPlayer);
             uiController.UpdateAmountDisplay(currentPlayer,player.MpAmount);
+            uiController.ChangeCardColor(player.IndexOnBoard, currentPlayer);
             SwitchTurns();
             ContinueButton();
 

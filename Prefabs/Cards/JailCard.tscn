@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Prefabs/Cards/BaseCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Art/Mesh/JailMesh.tres" type="QuadMesh" id=2]
 [ext_resource path="res://Art/Materials/JailCardMaterial.tres" type="Material" id=3]
+[ext_resource path="res://Art/Sprites/Cards/card fantasy back.png" type="Texture" id=4]
 
 [node name="Jail Card" instance=ExtResource( 1 )]
 
@@ -12,3 +13,7 @@ material/0 = ExtResource( 3 )
 
 [node name="Card Properties" parent="." index="1"]
 category = 3
+
+[node name="Sprite3D" parent="." index="2"]
+transform = Transform( 0.936, 0, 0, 0, -4.20941e-08, 1, 0, -0.963, -4.37114e-08, 0, 0, 0 )
+texture = ExtResource( 4 )

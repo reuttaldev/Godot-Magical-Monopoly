@@ -279,6 +279,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00614, 0 )
 [node name="Start Card" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.517, 0, 31.928 )
 
+[node name="MeshInstance" parent="Board/Tiles/Start Card" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/Start Card" index="1"]
 cost = 500
 message = "You landed on Start! Safe journeys, young witch!"
@@ -286,12 +289,18 @@ message = "You landed on Start! Safe journeys, young witch!"
 [node name="PropertyCard1" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0004, 0, 31.921 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard1" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard1" index="1"]
 cost = 250
 message = "This is a hunted house on sale. Who knows what you may find inside?"
 
 [node name="PropertyCard2" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0144, 0, 31.921 )
+
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard2" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/PropertyCard2" index="1"]
 message = "An ancient spell book that has been passed down for generations presents itself. Be careful, who knows what secrets might be written inside?"
@@ -306,12 +315,18 @@ message = "Oh no, someone has put a curse on you! "
 [node name="PropertyCard3" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.95704, 0, 31.921 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard3" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard3" index="1"]
 cost = 150
 message = " This is a magic feather you may use as a better tool for writing new exciting spells! "
 
 [node name="PropertyCard4" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9445, 0, 31.9215 )
+
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard4" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/PropertyCard4" index="1"]
 cost = 50
@@ -320,12 +335,18 @@ message = "Look, fragrant dried lavaner for your spells."
 [node name="Reward Card2" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.4899, 0, 31.8894 )
 
+[node name="MeshInstance" parent="Board/Tiles/Reward Card2" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/Reward Card2" index="1"]
 cost = 400
 message = "You have received a good luck spell jar! It must be good karma coming back to you."
 
 [node name="PropertyCard5" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5099, 0, 23.6502 )
+
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard5" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/PropertyCard5" index="1"]
 cost = 500
@@ -334,12 +355,18 @@ message = "Excellent, pure moon water. They have been left outside for precisely
 [node name="PropertyCard6" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 16.7171 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard6" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard6" index="1"]
 cost = 200
 message = "Black candles for your protection spells. So many equine uses, you feel safer just thinking about it."
 
 [node name="FineCard2" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 9.69474 )
+
+[node name="MeshInstance" parent="Board/Tiles/FineCard2" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/FineCard2" index="1"]
 cost = 300
@@ -348,6 +375,9 @@ message = "You have fallen ill and had to buy medicine. You lost some points, bu
 [node name="PropertyCard7" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.51, 0, 2.76621 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard7" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard7" index="1"]
 cost = 300
 message = "A bunch of fresh mixed herbs, wrapped in a white string - looks like rosemary, sage, and motherwort. Great for protection!"
@@ -355,11 +385,17 @@ message = "A bunch of fresh mixed herbs, wrapped in a white string - looks like 
 [node name="PropertyCard8" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.4704, 0, -4.29426 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard8" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard8" index="1"]
 message = "It's a magical herbal tea! It has healing and enriching properties."
 
 [node name="Reward Card3" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4706, 0, -13.0812 )
+
+[node name="MeshInstance" parent="Board/Tiles/Reward Card3" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/Reward Card3" index="1"]
 cost = 450
@@ -368,12 +404,18 @@ message = "You brewed a magical herbs tea that has increases your powers!"
 [node name="PropertyCard9" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9779, 0, -13.148 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard9" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard9" index="1"]
 cost = 350
 message = "Long cinnamon sticks for your spell. Grandma always told us that that is the best remedy for good fortune."
 
 [node name="PropertyCard10" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97611, 0, -13.148 )
+
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard10" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/PropertyCard10" index="1"]
 cost = 500
@@ -388,6 +430,9 @@ message = "You hear whispers in town that the witch hunters are getting closer a
 [node name="PropertyCard11" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03321, 0, -13.148 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard11" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard11" index="1"]
 cost = 500
 message = "Finally, the opportunity to sign your name in the great book of the beast. You are so excited about your new path of the dark. It is what every little girl dreams of!"
@@ -395,11 +440,17 @@ message = "Finally, the opportunity to sign your name in the great book of the b
 [node name="PropertyCard12" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0391, 0, -13.148 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard12" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard12" index="1"]
 message = "It's cloves for your spells. They smell a little funky, but they have proven to be very powerful before."
 
 [node name="Reward Card4" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.4901, 0, -13.1461 )
+
+[node name="MeshInstance" parent="Board/Tiles/Reward Card4" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/Reward Card4" index="1"]
 cost = 150
@@ -408,12 +459,18 @@ message = "You received a red collar with a golden bell on it for your companion
 [node name="PropertyCard13" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, -4.64034 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard13" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard13" index="1"]
 cost = 250
 message = "It's a fresh bunch of rose petals. They smell amazing! You may summon a brand new lover."
 
 [node name="PropertyCard14" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 2.38275 )
+
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard14" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/PropertyCard14" index="1"]
 cost = 50
@@ -422,6 +479,9 @@ message = "Look - dried bay leaves. Nana always said, if you write your wishes w
 [node name="FineCard3" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.4695, 0, 9.37335 )
 
+[node name="MeshInstance" parent="Board/Tiles/FineCard3" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/FineCard3" index="1"]
 cost = 450
 message = "Your flying broom is broken and needs immediate fixing! Better luck next time!"
@@ -429,12 +489,18 @@ message = "Your flying broom is broken and needs immediate fixing! Better luck n
 [node name="PropertyCard15" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 16.3339 )
 
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard15" index="0"]
+visible = true
+
 [node name="Card Properties" parent="Board/Tiles/PropertyCard15" index="1"]
 cost = 450
 message = "It is tiny glass jars, with a necklace attached to them. These are useful for making protection spells for your friends. They are not cheap, but knowing your friends are safe may lift your spirits."
 
 [node name="PropertyCard16" parent="Board/Tiles" groups=["Cards"] instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.47, 0, 23.3312 )
+
+[node name="MeshInstance" parent="Board/Tiles/PropertyCard16" index="0"]
+visible = true
 
 [node name="Card Properties" parent="Board/Tiles/PropertyCard16" index="1"]
 cost = 50

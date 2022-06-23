@@ -10,6 +10,8 @@ public class UIGameController : Control
     private Popup popUpPanel;
     private Button continueButton, yesButton, noButton,closeButton;
     private GameController gameController;
+    private  Sprite3D[] cardSprites;
+    private Color [] cardTint = new Color[]{ new Color( 0.94f, 0.97f, 1f, 1 ),new Color( 0.94f, 0.97f, 1, 1 )};
 
     public override void _Ready()
     {
@@ -34,7 +36,12 @@ public class UIGameController : Control
         continueButton.Connect("pressed",gameController, "ContinueButton");
         closeButton.Connect("pressed",this, "CloseGameButton");
 
-
+        cardSprites = new Sprite3D[GameController.NUM_OF_CARDS];
+        var cardTemp = GetTree().GetNodesInGroup("Card Sprite");
+        for (int i = 0; i < cardTemp.Count; i++)
+        {
+            cardSprites[i] = (Sprite3D)cardTemp[i];
+        }
     }
     internal void DisplayPopUp(CardCategory cat,string description,int amount)
     {
@@ -71,7 +78,11 @@ public class UIGameController : Control
         smallPopUpText.Text = smallTxt;
         bigPopUpTxt.Text = bigTxt;
     }
-
+    internal void ChangeCardColor(int cardIndex, int playerIndex)
+    {
+        //Texture t = (Texture)GD.Load(""+(player+1).ToString());
+        cardSprites[cardIndex].Modulate = cardTint[playerIndex];
+    }
     // this method activates UI pop up and changes the amount display
     internal void UpdateAmountDisplay(int playerIndex, int amount)
     {
