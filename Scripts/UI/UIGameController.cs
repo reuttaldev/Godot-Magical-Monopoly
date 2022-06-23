@@ -11,7 +11,7 @@ public class UIGameController : Control
     private Button continueButton, yesButton, noButton,closeButton;
     private GameController gameController;
     private  Sprite3D[] cardSprites;
-    private Color [] cardTint = new Color[]{ new Color( 0.51f, 0.3f, 0.84f, 0.35f ),new Color( 0.4f, 0.64f, 1, 0.35f )};
+    private Color [] cardTint = new Color[]{ new Color( 0.51f, 0.3f, 0.84f, 1f ),new Color( 0.4f, 0.64f, 1, 1f )};
 
     public override void _Ready()
     {
