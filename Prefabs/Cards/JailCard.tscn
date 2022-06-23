@@ -11,4 +11,4 @@ mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 
 [node name="Card Properties" parent="." index="1"]
-catagory = 3
+category = 3
