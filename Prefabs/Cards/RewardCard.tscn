@@ -8,7 +8,6 @@
 [node name="Reward Card" instance=ExtResource( 1 )]
 
 [node name="MeshInstance" parent="." index="0"]
-visible = true
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 
@@ -16,5 +15,6 @@ material/0 = ExtResource( 3 )
 category = 2
 
 [node name="Sprite3D" parent="." index="2"]
-transform = Transform( 1.02324, 0, 0, 0, -4.37114e-08, 1, 0, -0.69553, -3.04026e-08, 0, 0, 0 )
+transform = Transform( 1.03284, 0, 0, 0, -4.37114e-08, 1, 0, -0.69553, -3.04026e-08, 0, 0, 0 )
+visible = true
 texture = ExtResource( 4 )

@@ -4,5 +4,5 @@
 
 [node name="PropertyCard" instance=ExtResource( 1 )]
 
-[node name="MeshInstance" parent="." index="0"]
+[node name="Sprite3D" parent="." index="2"]
 visible = true
