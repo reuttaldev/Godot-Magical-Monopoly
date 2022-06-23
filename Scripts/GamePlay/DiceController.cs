@@ -17,12 +17,8 @@ public class DiceController : Control
     public override void _Ready()
     {
         // getting the faces textures
-        faces[0] = GetNode<TextureRect>("1");
-        faces[1] = GetNode<TextureRect>("2");
-        faces[2] = GetNode<TextureRect>("3");
-        faces[3] = GetNode<TextureRect>("4");
-        faces[4] = GetNode<TextureRect>("5");
-        faces[5] = GetNode<TextureRect>("6");
+        for (int i = 0 ; i < 6 ; ++i)
+            faces[i] = GetNode<TextureRect>((i + 1).ToString());
         gameController = (GameController)GetNode("../../");
     }
     
@@ -46,10 +42,8 @@ public class DiceController : Control
     {
         for(int i=0;i<faces.Length;i++)
         {
-            if(i == onIndex)
-                faces[i].Visible = true;
-            else 
-                faces[i].Visible = false;
+            faces[i].Visible = (i == onIndex);
+
         }
     }
             

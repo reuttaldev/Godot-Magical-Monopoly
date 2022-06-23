@@ -8,7 +8,7 @@ public class UIGameController : Control
     private Label [] amountText=new Label[2];
     private Label nowPlayingTxt, bigPopUpTxt, smallPopUpText,roundCountText,cantBuyText;
     private Popup popUpPanel;
-    private Button continueButton, yesButton, noButton;
+    private Button continueButton, yesButton, noButton,closeButton;
     private GameController gameController;
 
     public override void _Ready()
@@ -21,6 +21,7 @@ public class UIGameController : Control
         noButton = GetNode<Button>("Popup/Purple BackGround/White Background/No Button");
         yesButton  = GetNode<Button>("Popup/Purple BackGround/White Background/Yes Button");
         continueButton = GetNode<Button>("Popup/Purple BackGround/White Background/Continue Button");
+        closeButton = GetNode<Button>("Popup/Purple BackGround/White Background/Close Game Button");
         popUpPanel = GetNode<Popup>("Popup");
         amountText[0] = GetNode<Label>("Top Display/Points Diplay/1/numbr of points");
         amountText[1] = GetNode<Label>("Top Display/Points Diplay/2/numbr of points");
@@ -31,6 +32,9 @@ public class UIGameController : Control
         yesButton.Connect("pressed",gameController, "YesButton");
         noButton.Connect("pressed",gameController, "NoButton");
         continueButton.Connect("pressed",gameController, "ContinueButton");
+        closeButton.Connect("pressed",this, "CloseGameButton");
+
+
     }
     internal void DisplayPopUp(CardCategory cat,string description,int amount)
     {
@@ -116,6 +120,12 @@ public class UIGameController : Control
         continueButton.Visible = false;
         yesButton.Visible = false;
         noButton.Visible = false;
+        closeButton.Visible = true;
+    }
+
+    void CloseGameButton()
+    {
+        GetTree().Quit();
     }
     
 }

@@ -3,7 +3,7 @@ using System;
 
 public class GameController : Node
 {
-    const int numOfCards = 24;
+    const int NUM_OF_CARDS = 24;
     readonly string[] playersNames = {"Player 1","Player 2"};
     [Export]
     private float playerMovingSpeed=10;
@@ -11,8 +11,8 @@ public class GameController : Node
     private int jailWaitTurns = 2; // the number of turns a player has to wait in order to get out of jail
     private int currentPlayer = 0, roundCounter =1;
     private bool gameOver = false;
-    private Card [] cardArry = new Card [numOfCards]; // an arry that contains all card instances from scene
-    private Transform[] cardsTransforms = new Transform [numOfCards]; // transform of all cards in scene so we know where to move players to
+    private Card [] cardArry = new Card [NUM_OF_CARDS]; // an arry that contains all card instances from scene
+    private Transform[] cardsTransforms = new Transform [NUM_OF_CARDS]; // transform of all cards in scene so we know where to move players to
     private Player[] playersArry = new Player[2];
     private UIGameController uiController;
     private DiceController diceController;
@@ -102,36 +102,33 @@ public class GameController : Node
         Card card = cardArry[player.IndexOnBoard];
         CardCategory catagory = card.Catagory;
         int cost = card.Cost;
-        if ( catagory == CardCategory.property)
+        switch (catagory)
         {
-            uiController.DisplayPopUp(catagory,card.message,cost);
-            return;
-        }
-        if ( catagory == CardCategory.takenProperty)
-        {
-            // if it is owned by the opponent        
-            if (card.OwnedBy != currentPlayer)
-            {
-                //The fine is equal to 50% from the amount your opponent has paid in order to buy the property. 
-                cost =cost/2;
-                GD.Print("original cost = "+card.Cost+" new cost "+cost);
+            case CardCategory.property:
+                uiController.DisplayPopUp(catagory,card.message,cost);
+                break;
+            case CardCategory.takenProperty:
+                // if it is owned by the opponent        
+                if (card.OwnedBy != currentPlayer)
+                {
+                    //The fine is equal to 50% from the amount your opponent has paid in order to buy the property. 
+                    cost =cost/2;
+                    GD.Print("original cost = "+card.Cost+" new cost "+cost);
+                    player.SubtractMagicPoints(cost);
+                    // add those point to the opponent
+                    playersArry[(currentPlayer+1)%2].AddMagicPoints(cost);
+                }
+                break;
+            case CardCategory.reward:
+                player.AddMagicPoints(cost);
+                break;
+            case CardCategory.fine:
                 player.SubtractMagicPoints(cost);
-                // add those point to the opponent
-                playersArry[(currentPlayer+1)%2].AddMagicPoints(cost);
-            }
-            // if we land on a card we already own
-            else
-            {
-
-            }
+                break;
+            case CardCategory.jail:
+                player.JailTime = jailWaitTurns;
+                break;
         }
-        if (catagory == CardCategory.reward)
-            player.AddMagicPoints(cost);
-        if(catagory == CardCategory.fine)
-            player.SubtractMagicPoints(cost);
-        if(catagory == CardCategory.jail)
-            player.JailTime = jailWaitTurns;
-
         if(!gameOver)
         {
             uiController.DisplayPopUp(catagory,card.message,cost);
@@ -139,6 +136,7 @@ public class GameController : Node
             SwitchTurns();
         }
     }
+    
 
     // this method will be conected to the continue button in the pop up panel
     public void ContinueButton()
@@ -188,7 +186,8 @@ public class GameController : Node
     {
         GD.Print("Game is over");
         gameOver = true;
-        string winnerName = playersNames[losingIndex];
+        int winningIndex  = (losingIndex+1)%2;
+        string winnerName = playersNames[winningIndex];
         uiController.GameOver(winnerName);
         uiController.UpdateAmountDisplay(losingIndex,0);
     }
