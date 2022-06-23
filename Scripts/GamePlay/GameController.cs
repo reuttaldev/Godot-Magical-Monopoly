@@ -8,6 +8,8 @@ public class GameController : Node
     [Export]
     private float playerMovingSpeed=10;
     [Export]
+    internal  Vector3 playersStartPos;
+    [Export]
     private int jailWaitTurns = 2; // the number of turns a player has to wait in order to get out of jail
     private int currentPlayer = 0, roundCounter =1;
     private bool gameOver = false;
@@ -49,13 +51,10 @@ public class GameController : Node
     }
     private void SwitchTurns()
     {
-        int next = (currentPlayer+1)%2;
-        //if(playersArry[currentPlayer].JailTime != 0)
-        //{
-         //   playersArry[currentPlayer].JailTime-=1;
-        //}
-        //else
-            currentPlayer = next;
+        int lastPlayer = currentPlayer;
+        currentPlayer = (currentPlayer+1)%2;
+        if(playersArry[lastPlayer].JailTime != 0)
+            playersArry[lastPlayer].JailTime-=1;
     }
         internal void MoveCurrentPlayer(int howMuch)
     {
@@ -171,6 +170,7 @@ public class GameController : Node
     }
     public void NoButton()
     {
+        SwitchTurns();
         ContinueButton();
     }
     internal void RestartGame(int firstPlayPos,int secondPlayerPos)

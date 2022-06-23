@@ -5,7 +5,7 @@ public class Player : KinematicBody
     
     private const int MPStartAmount = 1500 ;
     [Export]
-    private Vector3 startingPos, paddingValue; // padding value is that the players wont be on top of each other when on the same tile
+    private Vector3 paddingValue; // padding value is that the players wont be on top of each other when on the same tile
     [Export]
     public int playerIndex;
     // current index is the index we are currently standing on
@@ -25,19 +25,24 @@ public class Player : KinematicBody
     private GameController gameController;
     [Signal]
     delegate void arrived(int c , int t );// our current and target indexes
+    private AnimationPlayer animationPlayer;
+    private int movementCounter = 0;
+
     public override void _Ready()
     {
         uiController = (UIGameController)GetNode("../Control");
         gameController = (GameController)GetNode("../");
+        animationPlayer = (AnimationPlayer)GetNode("mannequiny-030/AnimationPlayer");
         SetUpPlayer();
         SetPhysicsProcess(false);
     }
     internal void SetUpPlayer()
     {
+        jailTime = 0;
         mpAmount = MPStartAmount;
         uiController.UpdateAmountDisplay(this.playerIndex, MPStartAmount);
         indexOnBoard =0;
-        Translation =new Vector3(startingPos[0]+paddingValue[0],paddingValue[1],startingPos[2]+paddingValue[2]);
+        Translation =new Vector3(gameController.playersStartPos[0]+paddingValue[0],paddingValue[1],gameController.playersStartPos[2]+paddingValue[2]);
         jailTime = 0;
     }
     #region MOVMENT
@@ -49,8 +54,17 @@ public class Player : KinematicBody
         SetPhysicsProcess(true);
     }
 
+    public override void _Process(float delta)
+    {
+        base._Process(delta);
+            if(animationPlayer.CurrentAnimation !="run" &&animationPlayer.CurrentAnimation !="idle")
+            {
+                animationPlayer.Play("idle");
+            }
+    }
     //happens at a fixed rate, 60 times per second by default
     // we shut this off and on depending if we need to move or not.
+
     public override void _PhysicsProcess(float delta)
     {
         // when arrived at next position
@@ -60,13 +74,27 @@ public class Player : KinematicBody
             this.indexOnBoard = nextIndex;
             SetPhysicsProcess(false);
             EmitSignal(nameof(arrived),indexOnBoard,targetIdex);
+            //rotate when needed
+            movementCounter++;
+            if(movementCounter== GameController.NUM_OF_CARDS/4)
+            {
+                movementCounter = 0;
+                RotationDegrees = new Vector3(0,RotationDegrees[1]-90,0);
+                GD.Print("rotation is "+RotationDegrees);
+                //RotateY(-90);
+            }
+
         }
         else
         {
-            direction = (nextTransform-Transform.origin).Normalized()*gameController.PlayerMovingSpeed;// the difference between the position we are currently in and where we want to go
-            MoveAndSlide(direction);
+            direction = (nextTransform-Transform.origin);
+            MoveAndSlide(direction.Normalized()*gameController.PlayerMovingSpeed);
+            if(animationPlayer.CurrentAnimation !="run")
+                animationPlayer.Play("run");
+
         }
     }
+
     #endregion
     #region CURRENCY CONTROLLERS
     internal void AddMagicPoints(int amount)
