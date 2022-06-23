@@ -100,14 +100,14 @@ public class GameController : Node
         Player player = playersArry[currentPlayer];
         // the card the player is currently on
         Card card = cardArry[player.IndexOnBoard];
-        CardCatagory catagory = card.Catagory;
+        CardCategory catagory = card.Catagory;
         int cost = card.Cost;
-        if ( catagory == CardCatagory.property)
+        if ( catagory == CardCategory.property)
         {
             uiController.DisplayPopUp(catagory,card.message,cost);
             return;
         }
-        if ( catagory == CardCatagory.takenProperty)
+        if ( catagory == CardCategory.takenProperty)
         {
             // if it is owned by the opponent        
             if (card.OwnedBy != currentPlayer)
@@ -125,11 +125,11 @@ public class GameController : Node
 
             }
         }
-        if (catagory == CardCatagory.reward)
+        if (catagory == CardCategory.reward)
             player.AddMagicPoints(cost);
-        if(catagory == CardCatagory.fine)
+        if(catagory == CardCategory.fine)
             player.SubtractMagicPoints(cost);
-        if(catagory == CardCatagory.jail)
+        if(catagory == CardCategory.jail)
             player.JailTime = jailWaitTurns;
 
         if(!gameOver)
@@ -143,7 +143,7 @@ public class GameController : Node
     // this method will be conected to the continue button in the pop up panel
     public void ContinueButton()
     {
-        uiController.ClosePopUpPanal();
+        uiController.ClosePopUpPanel();
         uiController.ChangeNowPlayingText(playersNames[currentPlayer]); 
         StartTurn();
     }
@@ -175,7 +175,7 @@ public class GameController : Node
     internal void RestartGame(int firstPlayPos,int secondPlayerPos)
     {
         GD.Print("Game Reopened");
-        uiController.ClosePopUpPanal();
+        uiController.ClosePopUpPanel();
         for (int i = 0; i < playersArry.Length; i++)
         {
             playersArry[i].SetUpPlayer();

@@ -32,35 +32,35 @@ public class UIGameController : Control
         noButton.Connect("pressed",gameController, "NoButton");
         continueButton.Connect("pressed",gameController, "ContinueButton");
     }
-    internal void DisplayPopUp(CardCatagory cat,string description,int amount)
+    internal void DisplayPopUp(CardCategory cat,string description,int amount)
     {
         string s="", b="";
         switch (cat)
         {
-            case CardCatagory.property:
+            case CardCategory.property:
                 s = description;
-                b ="Do you want to buy this special item?" ;
+                b ="Do you want to buy this special item for \n"+amount +" Magic Points?" ;
                 break;
-            case CardCatagory.takenProperty:
+            case CardCategory.takenProperty:
                 s = "You landed on your opponent's property!";
                 b = "Lost " + amount.ToString() + " Magic Points!";
                 break;
-            case CardCatagory.reward:
+            case CardCategory.reward:
                 s = description;
                 b = "Earned " + amount.ToString() + " Magic Points!";
                 break;
-            case CardCatagory.fine:
+            case CardCategory.fine:
                 s = description;
                 b = "Lost " + amount.ToString() + " Magic Points!";
                 break;
-            case CardCatagory.jail:
+            case CardCategory.jail:
                 s = description; //"You hear whispers in town that the witch hunters are getting closer and closer. You must go into hiding until it is safe. They are still burning witches alive like it's the sixties!"
                 b = "Wait for 2 turns!";
                 break;
                 
         }
         ChangePopUpText(s,b);
-        OpenPopUpPanal(cat == CardCatagory.property);
+        OpenPopUpPanal(cat == CardCategory.property);
     }
     private void ChangePopUpText(string smallTxt, string bigTxt)
     {
@@ -74,7 +74,7 @@ public class UIGameController : Control
         GD.Print("Updating amount display for player "+playerIndex);
         amountText[playerIndex].Text = amount.ToString();
     }
-    internal void ClosePopUpPanal()
+    internal void ClosePopUpPanel()
     {
         cantBuyText.Visible = false;
         popUpPanel.Hide();

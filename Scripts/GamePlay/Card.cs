@@ -2,14 +2,14 @@ using Godot;
 using System;
 
 // this class will represent each of the locations in the board (each tile).
-    public enum CardCatagory
+    public enum CardCategory
     {
         property,takenProperty,reward, jail,fine
     }
 public class Card : Spatial
 {
     [Export]
-    private CardCatagory catagory; // Each tile can be either a property, a reward, or a starting point.
+    private CardCategory category; // Each tile can be either a property, a reward, or a starting point.
     [Export]
     private int cost=100;
     [Export]
@@ -17,7 +17,7 @@ public class Card : Spatial
     public int OwnedBy {get{return this.ownedBy;}}
     [Export]
     internal string message;
-    public CardCatagory Catagory { get { return this.catagory; } }
+    public CardCategory Catagory { get { return this.category; } }
     public int Cost { get { return this.cost; } }
     public  override void _Ready()
     {
@@ -27,6 +27,6 @@ public class Card : Spatial
     internal void ChangeCardOwnership(int owner)
     {
         ownedBy = owner;
-        catagory = CardCatagory.takenProperty;
+        category = CardCategory.takenProperty;
     }
 }

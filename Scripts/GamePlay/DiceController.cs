@@ -5,7 +5,7 @@ public class DiceController : Control
 {
     private TextureRect [] faces = new TextureRect[6];
     [Export]
-    private float animationDuratin = 2;// the number of seconds to show each face of the cube
+    private float animationDuration = 2;// the number of seconds to show each face of the cube
     [Export]
     private float faceDuration = 0.3f;     // the number of seconds to show each face of the cube
     [Export]
@@ -60,7 +60,7 @@ public class DiceController : Control
         if(roll)
         {
             // if we are whithin time limits of the animation
-            if(animationDuratin +delta>time)
+            if(animationDuration +delta>time)
             {
                 // if its time to switch faces
                 if(time + faceDuration>=lastFaceTime)
