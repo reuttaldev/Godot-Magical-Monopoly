@@ -10,7 +10,7 @@ public class GameController : Node
     [Export]
     internal  Vector3 playersStartPos;
     [Export]
-    private int jailWaitTurns = 2; // the number of turns a player has to wait in order to get out of jail
+    private int jailWaitTurns = 1; // the number of extra turns a player has to wait in order to get out of jail
     private int currentPlayer = 0, roundCounter =1;
     private bool gameOver = false;
     private Card [] cardArry = new Card [NUM_OF_CARDS]; // an arry that contains all card instances from scene
@@ -53,12 +53,13 @@ public class GameController : Node
     {
         int nextTurn = (currentPlayer+1)%2;
 
-        //if(playersArry[nextTurn].JailTime == 0)
+        if(playersArry[nextTurn].JailTime == 0)
             currentPlayer = nextTurn;
-        //else
-        //{
-        //    playersArry[nextTurn].JailTime-=1;
-       // }
+        else
+        {   
+            playersArry[nextTurn].JailTime-=1;
+            GD.Print("Player "+(nextTurn+1)+"has jail time left "+playersArry[nextTurn].JailTime);
+       }
     }
         internal void MoveCurrentPlayer(int howMuch)
     {
