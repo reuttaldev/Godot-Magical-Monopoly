@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/GamePlay/Player.cs" type="Script" id=1]
 [ext_resource path="res://Art/mannequiny/mannequiny-0.3.0.glb" type="PackedScene" id=2]
-
-[sub_resource type="CapsuleShape" id=1]
 
 [node name="Player" type="KinematicBody" groups=["Players"]]
 script = ExtResource( 1 )
@@ -11,10 +9,6 @@ paddingValue = Vector3( 2, 0, 0 )
 
 [node name="mannequiny-030" parent="." instance=ExtResource( 2 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="mannequiny-030/root/Skeleton/body001" index="0"]
-transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0.36982, 0.199585 )
-shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="mannequiny-030" index="1"]
 autoplay = "idle"

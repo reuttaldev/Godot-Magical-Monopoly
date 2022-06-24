@@ -80,8 +80,6 @@ public class Player : KinematicBody
             {
                 movementCounter = 0;
                 RotationDegrees = new Vector3(0,RotationDegrees[1]-90,0);
-                GD.Print("rotation is "+RotationDegrees);
-                //RotateY(-90);
             }
 
         }
@@ -101,7 +99,7 @@ public class Player : KinematicBody
     {
         this.mpAmount += amount;
         uiController.UpdateAmountDisplay(playerIndex, this.mpAmount);
-
+        GD.Print("adding  "+amount+" from player "+(playerIndex+1));
     }
     internal void SubtractMagicPoints(int amount)
     {
@@ -112,7 +110,7 @@ public class Player : KinematicBody
         }
         else
             gameController.GameIsOver(playerIndex);
-        GD.Print("subtract "+amount);
+        GD.Print("subtracting  "+amount+" from player "+(playerIndex+1));
         
 
     }

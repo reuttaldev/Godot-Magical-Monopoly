@@ -82,7 +82,6 @@ public class UIGameController : Control
     {
         //Texture t = (Texture)GD.Load(""+(player+1).ToString());
         cardSprites[cardIndex].Modulate = cardTint[playerIndex];
-        GD.Print("Adding tint to card with index "+cardIndex);
     }
     // this method activates UI pop up and changes the amount display
     internal void UpdateAmountDisplay(int playerIndex, int amount)

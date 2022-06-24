@@ -51,10 +51,14 @@ public class GameController : Node
     }
     private void SwitchTurns()
     {
-        int lastPlayer = currentPlayer;
-        currentPlayer = (currentPlayer+1)%2;
-        if(playersArry[lastPlayer].JailTime != 0)
-            playersArry[lastPlayer].JailTime-=1;
+        int nextTurn = (currentPlayer+1)%2;
+
+        //if(playersArry[nextTurn].JailTime == 0)
+            currentPlayer = nextTurn;
+        //else
+        //{
+        //    playersArry[nextTurn].JailTime-=1;
+       // }
     }
         internal void MoveCurrentPlayer(int howMuch)
     {
@@ -92,12 +96,12 @@ public class GameController : Node
     }
     void LandOnCard(int positionOnBoard)
     {
+        GD.Print("landed");
         Player player = playersArry[currentPlayer];
         // the card the player is currently on
         Card card = cardArry[player.IndexOnBoard];
         CardCategory catagory = card.Catagory;
         int cost = card.Cost;
-        GD.Print(" index "+player.IndexOnBoard);
 
         switch (catagory)
         {
@@ -110,7 +114,6 @@ public class GameController : Node
                 {
                     //The fine is equal to 50% from the amount your opponent has paid in order to buy the property. 
                     cost =cost/2;
-                    GD.Print("original cost = "+card.Cost+" new cost "+cost);
                     player.SubtractMagicPoints(cost);
                     // add those point to the opponent
                     playersArry[(currentPlayer+1)%2].AddMagicPoints(cost);
@@ -126,14 +129,19 @@ public class GameController : Node
                 SwitchTurns();
                 break;
             case CardCategory.jail:
-                player.JailTime = jailWaitTurns;
+                // only if the other player isnt already in jail
+                if(playersArry[(currentPlayer+1)%2].JailTime == 0)
+                    player.JailTime = jailWaitTurns;
+                GD.Print("adding jail time to player "+currentPlayer);
                 SwitchTurns();
                 break;
         }
         if(!gameOver)
         {
             uiController.DisplayPopUp(catagory,card.message,cost);
-            uiController.UpdateAmountDisplay(currentPlayer,player.MpAmount);
+            uiController.UpdateAmountDisplay(currentPlayer,playersArry[currentPlayer].MpAmount);
+            uiController.UpdateAmountDisplay((currentPlayer+1)%2,playersArry[(currentPlayer+1)%2].MpAmount);
+
         }
     }
     
@@ -150,7 +158,6 @@ public class GameController : Node
         // if the player can buy it
         Player player = playersArry[currentPlayer];
         Card card = cardArry[player.IndexOnBoard];
-        GD.Print("card index "+player.IndexOnBoard);
         if(player.MpAmount - card.Cost>=0)
         {
             // make the player buy it
