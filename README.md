@@ -15,6 +15,8 @@ To access the Windows build, please follow this [link](https://drive.google.com/
 ## Game snippet
 [![Watch the demo on Google Drive](https://drive.google.com/thumbnail?id=1pY6jzij4AF1mp9eMgLbIvKN9DCNiOFCD&sz=w1200-h675)](https://drive.google.com/file/d/1pY6jzij4AF1mp9eMgLbIvKN9DCNiOFCD/view?usp=sharing)
 
+A Unity version of the same game can be seen [here](https://github.com/reuttaldev/Unity-Work-Samples/tree/d597eaa4d14f14951dcd5c70f3af436568b8b176/PlayFab%20sample): [![Watch the demo on Google Drive](https://drive.google.com/thumbnail?id=10m8l24X30I1W1mOAnr2ZJ7dGzeDghB_H&sz=w1200-h675)](https://drive.google.com/file/d/10m8l24X30I1W1mOAnr2ZJ7dGzeDghB_H/view?usp=sharing)
+
 # Implementation
 
 The game was deve
