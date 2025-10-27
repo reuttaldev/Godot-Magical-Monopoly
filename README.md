@@ -18,8 +18,6 @@ To access the Windows build, please follow this [link](https://drive.google.com/
 A Unity version of the same game can be seen [here](https://github.com/reuttaldev/Unity-Work-Samples/tree/d597eaa4d14f14951dcd5c70f3af436568b8b176/PlayFab%20sample): [![Watch the demo on Google Drive](https://drive.google.com/thumbnail?id=10m8l24X30I1W1mOAnr2ZJ7dGzeDghB_H&sz=w1200-h675)](https://drive.google.com/file/d/10m8l24X30I1W1mOAnr2ZJ7dGzeDghB_H/view?usp=sharing)
 
 # Implementation
-
-The game was deve
 1. Calling DropDice() from GameController
 2. After there is a result from the dice, the first move of the player is triggered, moving one tile at a time- until we reach our target destination.
 4. Once the player is at the target position moving, LandOnCard() in GameController handles the buying process, rewards, fines, and jail.
